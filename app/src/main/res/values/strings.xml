@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Quest Chat</string>
+    <string name="action_settings">Settings</string>
+    <string name="about">About</string>
+    <string name="login_success">login success</string>
+    <string name="login">LOGIN</string>
+    <string name="Username">Email</string>
+    <string name="Password" translatable="true">Password</string>
+    <string name="forgot_your_password">Forgot your password ?</string>
+    <string name="go">GO</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="next">NEXT</string>
+    <string name="register">REGISTER</string>
+    <string name="hint_message" translatable="true">Write your message here…</string>
+    <string name="Aprender">O que vai aprender?</string>
+    <string name="Ensinar">O que vai ensinar?</string>
+
+    <string name="hint_username">Enter a new username</string>
+    <string name="hint_email_reset">Enter your email</string>
+    <string name="enter_group_name">Enter group name</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Set das escolha do usuário-->
+    <string-array name="decisions">
+        <item>Aprender</item>
+        <item>Ensinar</item>
+    </string-array>
+
+    <string-array name="Matéria">
+        <item>Português</item>
+        <item>Matemática</item>
+        <item>Ciências</item>
+        <item>História</item>
+        <item>Geografia</item>
+    </string-array>
+</resources>

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1052208772073",
+    "firebase_url": "https://questchat-1d648.firebaseio.com",
+    "project_id": "questchat-1d648",
+    "storage_bucket": "questchat-1d648.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052208772073:android:854d853de55b9f7a",
+        "android_client_info": {
+          "package_name": "com.educative.chat.chateducativebeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052208772073-2v78s908otcugr5dmo1it58eclem6itm.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1052208772073-2v78s908otcugr5dmo1it58eclem6itm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9y1aabFR_rwctcSonms1PXvVCZObnQkg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
