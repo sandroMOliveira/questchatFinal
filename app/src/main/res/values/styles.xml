@@ -8,6 +8,29 @@
         <item name="colorAccent">#bc3145</item>
         <!-- set Can use Activity transitions -->
         <item name="android:windowContentTransitions">true</item>
+        <!-- Assign dialog style here. -->
+        <item name="alertDialogTheme">@style/MyAlertDialogStyle</item>
+        <item name="alertDialogStyle">@style/MyAlertDialogStyle</item>
+
+    </style>
+
+
+    <!-- Dialog -->
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#fff</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MyAlertDialogButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/MyAlertDialogButtonStyle</item>
+        <item name="buttonBarNeutralButtonStyle">@style/MyAlertDialogButtonStyle</item>
+    </style>
+
+    <style name="MyAlertDialogButtonStyle" parent="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="MyDialogFadeAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -50,4 +73,13 @@
         <item name="colorAccent">#bc3145</item>
         <item name="android:windowBackground">@drawable/fundoapp</item>
     </style>
+
+
+
+    <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#626262</item>
+        <item name="android:textColorPrimary">#616161</item>
+        <item name="android:background">#fff</item>
+    </style>
+
 </resources>
