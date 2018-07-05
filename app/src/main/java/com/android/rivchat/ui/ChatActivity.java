@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +28,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.rivchat.model.Materias;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -194,6 +197,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 .setNoteDescriptions(Arrays.asList("Horrível", "Nada Mal", "Ok!", "Muito Bom!!", "Excelente !!!"))
                 .setDefaultRating(2)
                 .setTitle("Avalie " + name)
+                .setHint("Qual a matéria discutida aqui?")
                 .setCommentBackgroundColor(R.color.colorCardView)
                 .setStarColor(R.color.colorPrimary)
                 .setTitleTextColor(R.color.colorPrimary)
@@ -203,13 +207,18 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onPositiveButtonClicked(int rate, String comment) {
-        FirebaseDatabase.getInstance().getReference().child("user/" + idFriend.get(0) + "/ensinarRatings")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+    public void onPositiveButtonClicked(final int rate, final String comment) {
+        FirebaseDatabase.getInstance().getReference().child("user/" + idFriend.get(0))
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         HashMap map = (HashMap) dataSnapshot.getValue();
-                        Toast.makeText(ChatActivity.this, dataSnapshot.getKey(), Toast.LENGTH_SHORT).show();
+                        HashMap mapNota = (HashMap) map.get("ensinarRatings");
+                        Long teste = (Long) mapNota.get("Matemática");
+                        Long valuer = Long.valueOf(rate);
+                        Long media = (teste + valuer)/2;
+                        saveRating(comment, media);
+                        Toast.makeText(ChatActivity.this, "" + media + " " + comment, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -227,6 +236,11 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onNeutralButtonClicked() {
 
+    }
+
+    private void saveRating(String materia, Long nota){
+        FirebaseDatabase.getInstance().getReference().child("user/" + idFriend.get(0)
+                + "/ensinarRatings/" + materia).setValue(nota);
     }
 
 

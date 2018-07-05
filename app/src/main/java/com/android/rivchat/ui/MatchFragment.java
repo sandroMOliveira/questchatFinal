@@ -87,6 +87,7 @@ public class MatchFragment extends android.support.v4.app.Fragment implements Sw
     public static int ACTION_START_CHAT = 1;
     public static String APRENDER = "aprender";
     public static String ENSINAR = "ensinar";
+    public static String itemas;
 
     public static final String ACTION_DELETE_FRIEND = "com.android.rivchat.DELETE_FRIEND";
     private BroadcastReceiver deleteFriendReceiver;
@@ -302,6 +303,7 @@ public class MatchFragment extends android.support.v4.app.Fragment implements Sw
                     .setItems(testando, new LovelyChoiceDialog.OnItemSelectedListener<String>() {
                         @Override
                         public void onItemSelected(int position, String item) {
+                            itemas = item;
                             matUser.add(item);
                             queryFriends(choice);
                             Toast.makeText(getContext(), item,
@@ -684,11 +686,11 @@ class ListMatchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setVisibility(View.VISIBLE);
                 //((ItemMatchViewHolder) holder).txtMatch.setVisibility(View.VISIBLE);
                 if (!listMatch.getListMatchs().get(position).getEnsinar().startsWith(id)) {
-                    ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setText("Ensinar: Matemática");
+                    ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setText("Ensinar: " + MatchFragment.itemas);
                     ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setTypeface(Typeface.DEFAULT);
                     ((ItemMatchViewHolder) holder).txtName.setTypeface(Typeface.DEFAULT);
                 } else {
-                    ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setText("Ensinar: Matemática");
+                    ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setText("Ensinar: " + MatchFragment.itemas);
                     ((ItemMatchViewHolder) holder).txtAjudaEnsinar.setTypeface(Typeface.DEFAULT_BOLD);
                     ((ItemMatchViewHolder) holder).txtName.setTypeface(Typeface.DEFAULT_BOLD);
                 }
@@ -761,7 +763,7 @@ class ListMatchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             }
 
             if(listMatch.getListMatchs().get(position).getNota() >= 0){
-                ((ItemMatchViewHolder) holder).stars.setRating(3);
+                ((ItemMatchViewHolder) holder).stars.setRating(listMatch.getListMatchs().get(position).getNota());
             }
 
             if (mapQueryOnline.get(id) == null && mapChildListenerOnline.get(id) == null) {
